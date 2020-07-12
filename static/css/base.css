@@ -19,6 +19,7 @@ body {
     width: 1.5rem;
 }
 
+
 .logo-font {
     text-transform: uppercase;
 }
@@ -59,7 +60,9 @@ body {
     border: 1px solid black !important;
 }
 
-
+.about-section {
+    background-color: white;
+}
 
 /* -------------------------------- Media Queries */
 
