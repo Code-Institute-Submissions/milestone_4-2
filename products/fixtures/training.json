@@ -1,35 +1,32 @@
 [
   {
-    "model": "products.trainingsession",
     "pk": 1,
+    "model": "products.training",
     "fields": {
       "name": "One Session",
       "price": "100",
       "features": "free_initial_15_minute_consult,one_hour_of_games_based_training,detailed_training_plan",
-      "image": "media/2.jpg",
-      "date_created": "2020-04-27T04:26:18.958Z"
+      "image": "media/products/clock1.jpg"
     }
   },
   {
-    "model": "products.trainingsession",
     "pk": 2,
+    "model": "products.training",
     "fields": {
       "name": "Three Sessions",
       "price": "275",
       "features": "free_initial_15_minute_consult,three_hours_of_games_based_training,detailed_training_plan,follow_up_phonecall",
-      "image": "media/1.jpg",
-      "date_created": "2020-04-27T05:03:28.848Z"
+      "image": "media/products/clock3.jpg"
     }
   },
   {
-    "model": "products.trainingsession",
     "pk": 3,
+    "model": "products.training",
     "fields": {
       "name": "Five Sessions",
       "price": "450",
       "features": "free_initial_15_minute_consult,five_hours_of_games_based_training,detailed_training_plan,follow_up_phonecall,access_to_private_facebook_group",
-      "image": "media/3.jpg",
-      "date_created": "2020-04-27T05:07:17.778Z"
+      "image": "media/products/clock5.jpg"
     }
   }
 ]
