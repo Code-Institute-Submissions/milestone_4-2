@@ -6,7 +6,7 @@
       "name": "One Session",
       "price": "100.00",
       "features": "free_initial,one_hour,training_plan",
-      "image": "media/products/clock1.jpg"
+      "image": "/products/clock1.jpg"
     }
   },
   {
@@ -16,7 +16,7 @@
       "name": "Three Sessions",
       "price": "275.00",
       "features": "free_initial,three_hours,training_plan,follow_up",
-      "image": "media/products/clock3.jpg"
+      "image": "/products/clock3.jpg"
     }
   },
   {
@@ -26,7 +26,7 @@
       "name": "Five Sessions",
       "price": "450.00",
       "features": "free_initial,five_hours,training_plan,follow_up,facebook_group",
-      "image": "media/products/clock5.jpg"
+      "image": "/products/clock5.jpg"
     }
   }
 ]
