@@ -54,7 +54,7 @@
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
 					<li class="nav-item">
-						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="#" id="home-link"
+						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}" id="home-link"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Home
 						</a>
@@ -64,7 +64,7 @@
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
 					<li class="nav-item">
-						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="#" id="training-link"
+						<a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link text-green mr-5" id="training-link"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Training
 						</a>
@@ -104,7 +104,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-green{% endif %} nav-link" href="">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-green{% endif %} nav-link" href="{% url 'view_bag' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                                 
