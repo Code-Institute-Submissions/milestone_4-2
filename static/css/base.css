@@ -41,6 +41,19 @@ body {
     color: white;
 }
 
+.btn-outline-green {
+    background: white;
+    color: #1a5d37 !important; /* use important to override link colors for <a> elements */
+    border: 1px solid #1a5d37;
+}
+
+.btn-outline-green:hover,
+.btn-outline-green:active,
+.btn-outline-green:focus {
+    background: #1a5d37;
+    color: white !important;
+}
+
 .play-now-button:hover,
 .play-now-button:active,
 .play-now-button:focus,
