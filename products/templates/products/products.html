@@ -25,14 +25,7 @@
 				{% for product in products %}
 				<div>
 					{% include 'includes/sessioncards.html' with product=product %}
-					<form class="form" action="" method="POST">
-						{% csrf_token %}
-						<div class="col-12">
-							<input type="submit" class="btn btn-green rounded-0 text-uppercase mt-5" value="Buy Now">
-					                            </div>
-							<input type="hidden" name="redirect_url" value="{{ request.path }}">
-					    </div>
-					</form>
+					
 				</div>
 				{% endfor %}
 			</div>
