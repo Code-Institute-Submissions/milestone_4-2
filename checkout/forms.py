@@ -1,6 +1,7 @@
 from django import forms
 from .models import Order
 
+
 class PaymentForm(forms.Form):
     class Meta:
         model = Order
@@ -10,7 +11,7 @@ class PaymentForm(forms.Form):
         """
         Form customisation from Code Institute BoutiqueAdo project,
         with some modifications.
-        
+
         """
         super().__init__(*args, **kwargs)
         placeholders = {

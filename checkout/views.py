@@ -12,8 +12,8 @@ def checkout(request, pk):
             return redirect(reverse('products'))
         payment_form = PaymentForm(request.POST)
         order = Order(
-            product = product,
-            total = order_total
+            product=product,
+            total=product.price
         )
 
     template = 'checkout/checkout.html'
