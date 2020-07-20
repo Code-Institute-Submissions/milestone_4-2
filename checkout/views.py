@@ -1,21 +1,19 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from .forms import PaymentForm
-from products.models import Training
-from .models import Order
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
+from .forms import OrderForm
 
-def checkout(request, pk):
-    product = Training.objects.get(id=pk)
-    if request.method == "POST":
-        if 'cancel' in request.POST:
-            return redirect(reverse('products'))
-        payment_form = PaymentForm(request.POST)
-        order = Order(
-            product=product,
-            total=product.price
-        )
 
+def checkout(request):
+    bag = request.session.get('bag', {})
+    if not bag:
+        messages.error(request, "There's nothing in your bag at the moment")
+        return redirect(reverse('products'))
+
+    order_form = OrderForm()
     template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+    }
 
-    return render(request, template)
+    return render(request, template, context)

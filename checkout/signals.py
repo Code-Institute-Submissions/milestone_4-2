@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from products.models import Training
+from products.models import Product
 
 
 class Order(models.Model):
@@ -40,7 +40,8 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))
         ['lineitem_total__sum']
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = self.order_total * \
+                settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
@@ -63,7 +64,7 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
-    product = models.ForeignKey(Training, null=False, blank=False,
+    product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     product_size = models.CharField(max_length=2, null=True, blank=True)
     # XS, S, M, L, XL
