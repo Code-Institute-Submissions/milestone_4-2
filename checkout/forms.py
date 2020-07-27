@@ -2,29 +2,22 @@ from django import forms
 from .models import Order
 
 
+class MakePaymentForm(forms.Form):
+
+    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    YEAR_CHOICES = [(i, i) for i in range(2019, 2036)]
+
+    credit_card_number = forms.CharField(label='Credit card number', required=False)
+    cvv = forms.CharField(label='Security code (CVV)', required=False)
+    expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=False)
+    expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
+    stripe_id = forms.CharField(widget=forms.HiddenInput)
+
+
 class OrderForm(forms.ModelForm):
+
     class Meta:
         model = Order
-        fields = ('full_name', 'email', 'phone_number',)
-
-    def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
-        """
-        super().__init__(*args, **kwargs)
-        placeholders = {
-            'full_name': 'Full Name',
-            'email': 'Email Address',
-            'phone_number': 'Phone Number',
-        }
-
-        self.fields['full_name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+        fields = (
+            'full_name', 'phone_number', 'email'
+        )
