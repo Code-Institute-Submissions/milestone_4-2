@@ -61,8 +61,48 @@
 			</div>
 		</div>
 	</div>
-	{% endblock %}
+	
 </div>
+
+<div class="row">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col text-center mt-3">
+				<h2 class="">Coming Soon</h2>
+				<hr class="w-50 mb-1">
+			</div>
+		</div>
+      
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card coming-soon">
+                    <div class="card-image">
+                        <img src="/media/comingsoon1.jpg" alt="Online Classes" style="width:475px;height:575px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/media/comingsoon2.jpg" alt="Club" style="width:475px;height:575px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/media/comingsoon3.jpg" alt="Blog" style="width:475px;height:575px;">
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+ 
 	{% block postloadjs %}
 	{{ block.super }}
 	{% include 'products/includes/quantity_input_script.html' %}
