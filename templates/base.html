@@ -26,17 +26,23 @@
 
 	{% block corejs %}
 	<script src="https://kit.fontawesome.com/2063e4b091.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
 	<!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript">
-        //<![CDATA[
+	<script src="https://js.stripe.com/v3/"></script>
+	<script type="text/javascript">
+		//<![CDATA[
         Stripe.publishableKey = '{{ publishable }}';
         //]]>
-    </script>
-    {% endblock %}
+	</script>
+	{% endblock %}
 
 	{% block extra_js %}
 	{% endblock %}
@@ -55,8 +61,8 @@
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
 					<li class="nav-item">
-						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}" id="home-link"
-                            aria-haspopup="true" aria-expanded="false">
+						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}"
+							id="home-link" aria-haspopup="true" aria-expanded="false">
 							Home
 						</a>
 					</li>
@@ -65,80 +71,97 @@
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
 					<li class="nav-item">
-						<a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link text-green mr-5" id="training-link"
-							aria-haspopup="true" aria-expanded="false">
+						<a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link text-green mr-5"
+							id="training-link" aria-haspopup="true" aria-expanded="false">
 							Training
 						</a>
 					</li>
 				</ul>
 			</div>
-			<div>
-				<ul class="navbar-nav w-auto mx-auto">
-					<li class="nav-item">
-						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="#" id="contact-link"
+
+
+			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+				<ul class="list-inline list-unstyled text-center text-lg-right my-0">
+					<li class="list-inline-item dropdown">
+						<a class="text-green nav-link" href="#" id="user-options" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
-							Contact
+							<div class="text-center">
+								<p class="my-0">My Account</p>
+							</div>
+						</a>
+						<div class="dropdown-menu border-0" aria-labelledby="user-options">
+							{% if request.user.is_authenticated %}
+							{% if request.user.is_superuser %}
+							<a href="" class="dropdown-item">Product Management</a>
+							{% endif %}
+							<a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+							<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+							{% else %}
+							<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+							<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+							{% endif %}
+						</div>
+					</li>
+					<li class="list-inline-item">
+						<a class="{% if grand_total %}text-info font-weight-bold{% else %}text-green{% endif %} nav-link"
+							href="">
+							<div class="text-center">
+								<div><i class="fas fa-shopping-basket fa-lg"></i></div>
+
+							</div>
 						</a>
 					</li>
 				</ul>
 			</div>
-
-			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-green nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-green{% endif %} nav-link" href="">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
-                                
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+		</div>
+		<div class="row bg-white">
+			<nav class="navbar navbar-expand-lg navbar-light w-100">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                {% include 'includes/mobile-top-header.html' %}
-            </nav>
-        </div>
-        
-    </header>
+				{% include 'includes/mobile-top-header.html' %}
+			</nav>
+		</div>
 
-    {% if messages %}
-        <div class="message-container"></div>
-    {% endif %}
+	</header>
 
-    {% block page_header %}
-    {% endblock %}
+	{% if messages %}
+	<div class="message-container"></div>
+	{% endif %}
 
-    {% block content %}
-    {% endblock %}
+	{% block page_header %}
+	{% endblock %}
 
-    {% block postloadjs %}
-    {% endblock %}
+	{% block content %}
+	{% endblock %}
 
-    
-  </body>
+
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="footer-header">Games, Ready, GO!</h5>
+					<p class="footer-text">Address</p>
+					<p class="footer-text">Email</p>
+					<p class="footer-text">Call</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<ul>
+						<li><a class="footer-link" href="#!">Home</a></li>
+						<li><a class="footer-link" href="#!">Training</a></li>
+						<li><a class="footer-link" href="#!">My Account</a></li>
+						<li><a class="footer-link" href="#!">Checkout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	{% block postloadjs %}
+	{% endblock %}
+
+
+</body>
+
 </html>
