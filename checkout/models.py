@@ -1,9 +1,13 @@
 from django.db import models
 from products.models import Training
 
+from profiles.models import UserProfile
+
 # Create your models here.
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     phone_number = models.CharField(max_length=20, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     date = models.DateField()

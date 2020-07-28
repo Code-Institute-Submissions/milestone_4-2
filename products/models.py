@@ -18,9 +18,8 @@ SESSION_FEATURES = [
 class Training(models.Model):
 
     name = models.CharField(max_length=254, default='')
-    price = models.DecimalField(max_digits=6, decimal_places=2,)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     features = MultiSelectField(choices=SESSION_FEATURES)
-    image = models.ImageField(upload_to='media/products')
 
     def __str__(self):
         return self.name
@@ -34,3 +33,4 @@ class Training(models.Model):
             else:
                 feature_list.append(feature)
         return feature_list
+
