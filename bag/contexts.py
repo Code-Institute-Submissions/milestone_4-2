@@ -5,27 +5,24 @@ from products.models import Training
 
 def bag_contents(request):
 
-    bag_items = []
-    total = 0
     bag = request.session.get('bag', {})
 
-    for item_id, item_data in bag.items():
-        if isinstance(item_data, int):
-            product = get_object_or_404(Training, pk=item_id)
-            total += item_data * product.price
-            product_count += item_data
-            bag_items.append({
-                'item_id': item_id,
-                'product': product,
-            })
+    bag_items = []
+    total = 0    
 
-    
-    grand_total = total
-    
+    for item_id, item_data in bag.items():
+        product = get_object_or_404(Training, pk=item_id)
+        total = product.price
+        bag_items.append({
+            'item_id': item_id,
+            'product': product,
+        })
+
     context = {
         'bag_items': bag_items,
         'total': total,
-        'grand_total': grand_total,
     }
 
     return context
+
+    
