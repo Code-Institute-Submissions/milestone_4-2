@@ -17,10 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from products import urls as urls_products
-from bag import urls as urls_bag
-from products.views import all_products
-from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
