@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+	<div class="row">
+		<div class="col"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="row">
+	<div class="col-md-12">
+		<h4>{{ product.name }}</h4>
+	</div>
+	<div class="col-md-6">
+		<h4>Total</h4>
+		<div class="card-text price checkout">
+			{{ product.price }}
+		</div>
+	</div>
+</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h4>Payment Details</h4>
+		</div>
+	</div>
+	<form role="form" method="post" id="payment-form" action="{% url 'checkout' product.pk %}">
+		{% csrf_token %}
+		
+		
+	
+		<div class="alert alert-danger" role="alert" id="credit-card-errors" style="display: none;">
+			<div id="stripe-error-message"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					{{ payment_form.credit_card_number|as_crispy_field }}
+				</div>
+				<div class="form-group">
+					{{ payment_form.ccv|as_crispy_field }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					{{ payment_form.expiry_month|as_crispy_field }}
+				</div>
+				<div class="form-group">
+					{{ payment_form.expiry_year|as_crispy_field }}
+				</div>
+			</div>
+	
+			<div class="form-group">
+				{{ payment_form.stripe_id|as_crispy_field }}
+			</div>
+	
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit"
+	                        value="Submit Payment">
+				<a class="btn btn-cancel" href="{% url 'products' %}">Cancel</a>
+			</div>
+		</div>
+	</form>
+
+{% endblock %}
