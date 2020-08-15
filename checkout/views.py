@@ -3,6 +3,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .forms import MakePaymentForm
 from .models import Order, OrderLineItem
@@ -17,7 +18,7 @@ import json
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 
-
+@login_required
 def checkout(request, pk):
     product = Training.objects.get(id=pk)
     if request.method == "POST":
@@ -45,7 +46,7 @@ def checkout(request, pk):
                 messages.success(request, "Your payment was success and your service level has been updated.")
                 order.payment_status = 'payment_collected'
                 order.save()
-                return redirect(reverse('profile'))
+                return render(reverse('profile'))
 
             else:
                 messages.success(request, "Please enter your payment information below.")
@@ -53,5 +54,6 @@ def checkout(request, pk):
         else:
             payment_form = MakePaymentForm()
 
+    payment_form = MakePaymentForm
     return render(request, "checkout.html",
-                  {'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE, 'product': product,})
+                  {'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLIC_KEY, 'product': product,})
