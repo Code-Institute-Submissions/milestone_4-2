@@ -50,12 +50,13 @@
 		<div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
 			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
 				<a href="{% url 'home' %}" class="nav-link main-logo-link">
-					<h2 class="logo-font text-green my-0"><strong>Games,</strong> Ready, GO!</h2>
+					<h2 class="logo-font logo text-green my-0"><strong>Games,</strong> Ready, GO!</h2>
 				</a>
 			</div>
+            
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
-					<li class="nav-item">
+					<li class="nav-item grow">
 						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}"
 							id="home-link" aria-haspopup="true" aria-expanded="false">
 							Home
@@ -65,7 +66,7 @@
 			</div>
 			<div>
 				<ul class="navbar-nav w-auto mx-auto">
-					<li class="nav-item">
+					<li class="nav-item grow">
 						<a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link text-green mr-5"
 							id="training-link" aria-haspopup="true" aria-expanded="false">
 							Training
@@ -75,19 +76,19 @@
 			</div>
             <div>
 				<ul class="navbar-nav w-auto mx-auto">
-					<li class="nav-item">
-						<a class="logo-font font-weight-bold nav-link text-green mr-5" href=""
-							id="home-link" aria-haspopup="true" aria-expanded="false">
+					<li class="nav-item grow">
+						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="#contact"
+							id="contact-link" aria-haspopup="true" aria-expanded="false">
 							Contact
 						</a>
 					</li>
 				</ul>
 			</div>
 
-			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+			<div>
 				<ul class="list-inline list-unstyled text-center text-lg-right my-0">
 					<li class="list-inline-item dropdown">
-						<a class="text-green nav-link" href="#" id="user-options" data-toggle="dropdown"
+						<a class="text-green nav-link grow" href="#" id="user-options" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
 							<div class="text-center">
 								<p class="my-0">My Account</p>
@@ -105,15 +106,6 @@
 							<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
 							{% endif %}
 						</div>
-					</li>
-					<li class="list-inline-item">
-						<a class="{% if grand_total %}text-info font-weight-bold{% else %}text-green{% endif %} nav-link"
-							href="">
-							<div class="text-center">
-								<div><i class="fas fa-shopping-basket fa-lg"></i></div>
-
-							</div>
-						</a>
 					</li>
 				</ul>
 			</div>
@@ -139,24 +131,25 @@
 	{% block content %}
 	{% endblock %}
 
-
+   
 
 	<footer class="page-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="footer-header">Games, Ready, GO!</h5>
-					<p class="footer-text">Address</p>
-					<p class="footer-text">Email</p>
-					<p class="footer-text">Call</p>
+				<div class="col l4 s12">
+                    <a href="{% url 'home' %}" class="footer-header">
+					<h4 class="footer-header"><strong>Games,</strong> Ready, GO!</h4>
+                    </a>
+				</div>
+                <div class="col l4 s12">
+					<p class="footer-text" >1 Games Road, Readytown, UK</p>
+					<p class="footer-text">hello@gamesreadygo.co.uk</p>
+					<p class="footer-text">01234 567 890</p>
 				</div>
 				<div class="col l4 offset-l2 s12">
-					<ul>
-						<li><a class="footer-link" href="#!">Home</a></li>
-						<li><a class="footer-link" href="#!">Training</a></li>
-						<li><a class="footer-link" href="#!">My Account</a></li>
-						<li><a class="footer-link" href="#!">Checkout</a></li>
-					</ul>
+						<p class="grow"><a class="footer-link" href="{% url 'home' %}">Home</a></p>
+						<p class="grow"><a class="footer-link" href="{% url 'products' %}">Training</a></p>
+						<p class="grow"><a class="footer-link" href="{% url 'profile' %}">My Account</a></p>
 				</div>
 			</div>
 		</div>
