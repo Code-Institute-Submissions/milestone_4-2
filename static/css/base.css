@@ -11,6 +11,25 @@ body {
 }
 
 
+.nav-item {
+    margin-right:25px;
+    margin-left:50px;
+    margin-bottom:0;
+    margin-top:5px;
+}
+
+
+.list-inline-item {
+    margin-left:250px;
+    margin-bottom:0;
+    margin-top:5px;
+}
+
+.grow:hover { 
+    transform: scale(1.1); 
+}
+
+
 
 /* from Bulma */
 .icon {
@@ -90,6 +109,38 @@ body {
 }
 
 /* -------------------------------- Footer */
+
+.page-footer {
+    background:white;
+    color:#1a5d37;
+    padding-top:15px;
+    font-weight:bold;  
+    position: sticky;  
+}
+
+.footer-header {
+    padding-top:1.5em;
+    text-transform: uppercase;
+    color:#1a5d37;
+}
+
+.footer-text {
+    padding-left:5em;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    padding-left:15em;
+    color:#1a5d37;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#1a5d37;
+}
+
 
 
 
