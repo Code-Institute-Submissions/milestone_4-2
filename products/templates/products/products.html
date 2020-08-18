@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+
 {% block page_header %}
 <div class="container header-container">
 	<div class="row">
@@ -13,7 +15,7 @@
 <div class="overlay"></div>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col text-center mt-3">
+		<div class="col text-center product-header mt-3">
 			<h2 class="logo-font">Book One to One Training Sessions</h2>
 			<hr class="w-50 mb-1">
 		</div>
@@ -25,10 +27,17 @@
 				{% for product in products %}
 				<div>
 					<div class="col">
-						<div class="card h-100 border-0">
+						<div class="card border-">
 							<div class="card-header text-center">
 								<h3>{{ product.name }}</h3>
 							</div>
+                            <div class="card-text bg-white pt-0 border-0 text-left">
+								<div class="row">
+									<div class="col">
+										<p class="lead card-price mb-0 text-center font-weight-bold">£{{ product.price }}</p>
+									</div>
+								</div>
+                            </div>
 							<div class="card-body">
 								<div class="card-text product-features">
 									<h4 class="card-title text-center">Included in your session</h4>
@@ -39,22 +48,16 @@
 									</ul>
 								</div>
 							</div>
-							<div class="card-footer bg-white pt-0 border-0 text-left">
-								<div class="row">
-									<div class="col">
-										<p class="lead mb-0 text-center font-weight-bold">£{{ product.price }}</p>
-									</div>
-								</div>
-
-								<form class="form" action="{% url 'checkout' pk=product.pk %}" method="POST">
-									{% csrf_token %}
-									<div class="col-12">
-										<input type="submit" class="btn btn-green rounded-0 text-uppercase mt-5" value="Buy Now">
-										<input type="hidden" name="redirect_url" value="{{ request.path }}">
-					                </div>
-								</form>
-							</div>
-						</div>
+                            <div class="card-text buy-now-btn text-center">
+                                <form class="form" action="{% url 'checkout' pk=product.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="col-12">
+                                        <input type="submit" class="btn btn-green rounded-0 text-uppercase mt-5" value="Buy Now">
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 					</div>
 				</div>
 				{% endfor %}
@@ -64,61 +67,58 @@
 	
 </div>
 
-<div class="row">
+<div class="row container-fluid test-section">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col text-center mt-3">
+			<div class="col text-center test-header mt-3">
 				<h2 class="">Testimonials</h2>
-				<hr class="w-50 mb-1">
+				<hr class="w-50 mb-1 test-line">
 			</div>
 		</div>
-		<div class="col-20 offset-1">
-			<div class="row mt-1 mb-2">
-				<div class="col">
-					<div class="card h-100 border-0">
-						<div class="home1-testm-txt">
-							<span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
-							<p>Review review review</p>
-							<h3>- Kelly, Berkshire</h3>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="card h-100 border-0">
-						<div class="home1-testm-txt">
-							<span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
-							<p>Review review review</p>
-							<h3>- Kelly, Berkshire</h3>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="card h-100 border-0">
-						<div class="home1-testm-txt">
-							<span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
-							<p>Review review review</p>
-							<h3>- Kelly, Berkshire</h3>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="card h-100 border-0">
-						<div class="home1-testm-txt">
-							<span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
-							<p>Review review review</p>
-							<h3>- Kelly, Berkshire</h3>
-						</div>
-					</div>
-				</div>
+        <div class="row test-text">
+            <div class="col">
+                <div class="card test-card h-100 border-0">
+                    <div class="home1-testm-txt text-center">
+                        <span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                        <p>We attended many, many, many training classes with our naughty but nice dog, Tessa. 
+                            Nothing stopped her lunging at other dogs on the lead until we started playing games. Now Tessa 
+                            is so focused on us that she doesn't even notice other dogs around her. Simply amazed. </p>
+                        <h5>- Cathy, London</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card test-card h-100 border-0">
+                    <div class="home1-testm-txt text-center">
+                        <span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                        <p>We've found our home.</p>
+                        <h5>- Rebecca, Kent</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card test-card h-100 border-0">
+                    <div class="home1-testm-txt text-center">
+                        <span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                        <p>I adapted my dog a year ago and we were completely lost until I found the gamechanger way. 
+                            This is now a way of life for us, and what a fabulous life it will be.</p>
+                        <h5>- Andrew, London</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card test-card h-100 border-0">
+                    <div class="home1-testm-txt text-center">
+                        <span class="icon section-icon"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                        <p>Brilliant training, brilliant trainer. Will book again.</p>
+                        <h5>- Kelly, Berkshire</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>         
 </div>       
 
+
 {% endblock %}
  
-	{% block postloadjs %}
-	{{ block.super }}
-	{% include 'products/includes/quantity_input_script.html' %}
-	{% endblock %}
-

@@ -123,7 +123,7 @@ p {
 }
 
 .coming-soon-header {
-    padding-bottom:0.5em;
+    padding-bottom:1em;
 }
 
 /*-----------------------------------------Contact Form*/
@@ -243,6 +243,54 @@ a:hover {
     color:  #0b2818;
 
 }
+
+/*-----------------------------------------Product page*/
+
+.product-container {
+    padding-top:1em;
+}
+
+.product-header {
+    padding-bottom:2em;
+}
+
+.product-features {
+    height:150px;
+}
+
+.card-title {
+    margin-top:0.8em;
+    margin-bottom:0.8em;
+}
+.product-price {
+    font-size:20px;
+    margin-top:2em;
+}
+
+.test-section {
+    background-color: #1a5d37;
+    padding-bottom:5em;
+    margin-top:5em;
+    color:white;
+}
+
+.test-card {
+    background-color: #1a5d37;
+}
+
+.test-line {
+    background-color:white;
+}
+
+.test-header{
+    padding-top:2em;
+    padding-bottom:2em;
+}
+
+.test-text {
+    padding-left:2em;
+}
+
 
 
 /* -------------------------------- Media Queries */
