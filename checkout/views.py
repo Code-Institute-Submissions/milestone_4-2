@@ -31,7 +31,7 @@ def checkout(request, pk):
                 # stripe takes integer amount so need to multiply from cents up
                 customer = stripe.Charge.create(
                     amount=int(product.price * 100),
-                    currency="USD",
+                    currency="GBP",
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id'],
                 )
@@ -56,4 +56,4 @@ def checkout(request, pk):
 
     payment_form = MakePaymentForm
     return render(request, "checkout.html",
-                  {'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLIC_KEY, 'product': product,})
+                  {'payment_form': payment_form, 'public_key': settings.STRIPE_PUBLIC_KEY, 'product': product,})
