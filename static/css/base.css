@@ -230,10 +230,19 @@ p {
 
 a:hover {
     text-decoration: none;
-    color:#1a5d37;
+    color: #0b2818;
 }
 
+.fa {
+    color: #1a5d37;
+    padding-left:0.75em;
+    padding-top:1em;
+}
 
+.fa:hover {
+    color:  #0b2818;
+
+}
 
 
 /* -------------------------------- Media Queries */
