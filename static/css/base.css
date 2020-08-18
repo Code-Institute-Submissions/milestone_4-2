@@ -1,3 +1,5 @@
+/*-----------------------------------------General Styling*/
+
 html {
     height: 100%;
 }
@@ -10,6 +12,17 @@ body {
     font-family: 'lato';
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+/*-----------------------------------------Navigation Bar*/
 
 .nav-item {
     margin-right:25px;
@@ -30,16 +43,7 @@ body {
 }
 
 
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
+/*-----------------------------------------Logo*/
 
 .logo-font {
     text-transform: uppercase;
@@ -48,6 +52,8 @@ body {
 .main-logo-link {
     width: fit-content;
 }
+
+/*-----------------------------------------Homepage Banner*/
 
 .play-now-button {
     background: #1a5d37;
@@ -94,21 +100,109 @@ body {
     border: 1px solid black !important;
 }
 
-.about-section {
+/*-----------------------------------------Homepage Sections*/
+
+.about-section,
+.coming-soon-section {
     background-color: white;
+    padding-bottom:2em;
+
 }
 
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
+.about-section {
+    padding-top:2em;
 }
+
+p {
+    padding-top:1em;
+}
+
+.about-section-img {
+    padding-top:5em;
+    padding-right:6em;
+}
+
+.coming-soon-header {
+    padding-bottom:0.5em;
+}
+
+/*-----------------------------------------Contact Form*/
+
+.contact-us-heading {
+    color:white;
+    padding-top:3em;
+    padding-bottom:2.5em;
+}
+
+.form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding-bottom:3em;
+}
+
+.form-control {
+    background-color: white;
+    color: #1a5d37;
+}
+
+::placeholder {
+    color: #1a5d37 !important;
+}
+
+
+
+.btn-contact {
+    background: #1a5d37;
+    color: white;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 5.5em;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+    padding-left:1em;
+    padding-right:1em;
+}
+
+.btn-contact-outline {
+    background: #1a5d37;
+    color: white !important;
+    border: 1px solid #1a5d37;
+}
+
+.btn-contact-outline:hover,
+.btn-contact-outline:active,
+.btn-contact-outline:focus,
+.btn-contact:hover,
+.btn-contact:active,
+.btn-contact:focus {
+    background: #0b2818;
+    color: white;
+    border: 1px solid#0b2818;
+}
+
+.form-thanks {
+    color: white;
+    text-align: center;
+    display: block;
+    margin-left: 3em;
+}
+
+
+.contact-us-section {
+    margin:0;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.466),
+      rgba(0, 0, 0, 0.37)
+    );
+    background-size: cover;
+    
+}
+
 
 /* -------------------------------- Footer */
+
+
 
 .page-footer {
     background:white;
