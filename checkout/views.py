@@ -21,14 +21,15 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required
 def checkout(request, pk):
     product = Training.objects.get(id=pk)
+    payment_form = MakePaymentForm(request.POST)
+    order = Order(
+            product=product,
+            total=product.price
+        )
     if request.method == "POST":
-        if 'cancel' in request.POST:
-            return redirect(reverse('products'))
-            payment_form = MakePaymentForm(request.POST)
 
-
+        if payment_form.is_valid():
             try:
-                # stripe takes integer amount so need to multiply from cents up
                 customer = stripe.Charge.create(
                     amount=int(product.price * 100),
                     currency="GBP",
@@ -36,24 +37,21 @@ def checkout(request, pk):
                     card=payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
-                # user has not paid, update the Order status
-                order.payment_status = 'payment_rejected'
                 order.save()
                 messages.error(request, "Sorry, your card was declined.")
-
             if customer.paid:
-                # user has paid, update the Order status
-                messages.success(request, "Your payment was success and your service level has been updated.")
-                order.payment_status = 'payment_collected'
-                order.save()
-                return render(reverse('profile'))
-
+                messages.error(request, "You have successfully paid")
+                return redirect(reverse('profile'))
             else:
-                messages.success(request, "Please enter your payment information below.")
-
+                messages.error(request, "Unable to take payment")
         else:
-            payment_form = MakePaymentForm()
+            print(payment_form.errors)
+            messages.error(request, "We were unable to take a payment with that card!")
+
+    else:
+        payment_form = MakePaymentForm()
+
 
     payment_form = MakePaymentForm
     return render(request, "checkout.html",
-                  {'payment_form': payment_form, 'public_key': settings.STRIPE_PUBLIC_KEY, 'product': product,})
+                  {'payment_form': payment_form, "publishable": settings.STRIPE_PUBLISHABLE, 'product': product,})
