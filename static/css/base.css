@@ -1,20 +1,5 @@
-.payment-container {
-    padding-top:3em;
-    padding-bottom:5em;
-}
 
-.checkout-header {
-    padding-bottom:3em;
-}
 
-.ord-det-head,
-.pay-head-det {
-    padding-bottom:0.75em;
-}
-
-.btn-cancel {
-    color:#1a5d37 !important;
-}
 /*-----------------------------------------General Styling*/
 
 html {
@@ -222,7 +207,19 @@ p {
 
 /* -------------------------------- Footer */
 
+/*----Sticky Footer---*/
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/*--------------------*/
 
 .page-footer {
     position:fixed;
@@ -312,6 +309,26 @@ a:hover {
 
 .test-text {
     padding-left:2em;
+}
+
+/*-----------------------------------------Checkout*/
+
+.payment-container {
+    padding-top:3em;
+    padding-bottom:5em;
+}
+
+.checkout-header {
+    padding-bottom:3em;
+}
+
+.ord-det-head,
+.pay-head-det {
+    padding-bottom:0.75em;
+}
+
+.btn-cancel {
+    color:#1a5d37 !important;
 }
 
 
