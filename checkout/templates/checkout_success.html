@@ -18,16 +18,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Thank You</h2>
-                <hr>
+                <hr class="w-50">
+                <h3 class="logo-font mb-4 text-center">Thank You</h3>
+                <hr class="w-50">
                 <p class="text-black">A confirmation email is on it's way with further information.</p>
             </div>
         </div>
 
        
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
+			<div class="col-12 col-lg-7 text-center">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">
@@ -36,9 +36,9 @@
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'home' %}" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'home' %}" class="btn btn-green rounded-0 my-2">
                         <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
+                            <i class="fas fa-paw"></i>
                         </span>
                         <span class="text-uppercase">Learn more about the gamechanger way!</span>
                     </a>
