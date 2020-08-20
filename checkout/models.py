@@ -33,12 +33,11 @@ class Order(models.Model):
     stripe_pid = models.CharField(max_length=254, null=True, blank=True, default='')
 
     product = models.ForeignKey(Training, null=True, blank=True, on_delete=models.SET_NULL)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    total = models.DecimalField(max_digits=6, decimal_places=2,validators=[
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+    total = models.DecimalField(default=0, max_digits=6, decimal_places=2,validators=[
                                              MinValueValidator(0.00),
                                              MaxValueValidator(1500.00)
                                          ])
-    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "{0} {1} @ {2}".format(self.user.username, self.product.name, self.product.price)

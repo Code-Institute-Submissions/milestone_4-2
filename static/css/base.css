@@ -1,3 +1,20 @@
+.payment-container {
+    padding-top:3em;
+    padding-bottom:5em;
+}
+
+.checkout-header {
+    padding-bottom:3em;
+}
+
+.ord-det-head,
+.pay-head-det {
+    padding-bottom:0.75em;
+}
+
+.btn-cancel {
+    color:#1a5d37;
+}
 /*-----------------------------------------General Styling*/
 
 html {
@@ -63,6 +80,7 @@ body {
 .btn-green {
     background: #1a5d37;
     color: white;
+    border: 1px solid #1a5d37;
 }
 
 .btn-outline-green {
@@ -86,6 +104,7 @@ body {
 .btn-green:focus {
     background: #0b2818;
     color: white;
+    border: 1px solid #1a5d37;
 }
 
 .text-green {
