@@ -26,60 +26,74 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container header-container">
-	<div class="col">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col text-center checkout-header mt-3">
+			<h3 class="logo-font">Checkout</h3>
+			<hr class="w-50 mb-1">
+		</div>
+	</div>
+    <div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<h4>{{ product.name }}</h4>
-			</div>
-			<div class="col-md-6">
-				<h4>Total</h4>
-				<div class="card-text price checkout">
-					{{ product.price }}
-				</div>
+			<div class="col-md-12 ord-det-head">
+				<h4>Order Details</h4>
 			</div>
 		</div>
-
+        <div class="table-responsive order-table">
+            <table class="table col-md-6">
+                <thead>
+                    <tr>
+                    <th scope="col">Order</th>
+                    <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+    </div>    
+    <div class="container payment-container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6 pay-head-det">
 				<h4>Payment Details</h4>
+                <hr class="mb-1">
 			</div>
 		</div>
-
 		<form role="form" method="post" id="payment-form" action="{% url 'checkout' product.pk %}">
 			{% csrf_token %}
 
             <fieldset class="rounded px-3 mb-5">
-			<div id="credit-card-errors" style="display: none;">
-                <div class="alert-message block-message error" id="stripe-error-message"></div>
-            </div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						{{ payment_form.credit_card_number|as_crispy_field }}
-					</div>
-					<div class="form-group">
-						{{ payment_form.ccv|as_crispy_field }}
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						{{ payment_form.expiry_month|as_crispy_field }}
-					</div>
-					<div class="form-group">
-						{{ payment_form.expiry_year|as_crispy_field }}
-					</div>
-				</div>
-				<div class="form-group">
-					{{ payment_form.stripe_id|as_crispy_field }}
-				</div>
+                <div id="credit-card-errors" style="display: none;">
+                    <div class="alert-message block-message error" id="stripe-error-message"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ payment_form.credit_card_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ payment_form.ccv|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ payment_form.expiry_month|as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ payment_form.expiry_year|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ payment_form.stripe_id|as_crispy_field }}
+                    </div>
+                </div>
             </fieldset>
-           
-				
-			</div>
+           	
 			<div class="row">
 				<div class="form-group col-md-12">
-					<input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit"
+					<input class=" btn btn-primary btn-green" id="submit_payment_btn" name="commit" type="submit"
 	                        value="Submit Payment">
 					<a class="btn btn-cancel" href="{% url 'products' %}">Cancel</a>
 				</div>

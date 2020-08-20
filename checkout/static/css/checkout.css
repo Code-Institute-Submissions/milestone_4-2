@@ -64,3 +64,9 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.order-table {
+    padding-left:10em;
+    padding-right:10em;
+
+}
