@@ -37,20 +37,19 @@ def checkout(request, pk):
                     card=payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
-                order.save()
                 messages.error(request, "Sorry, your card was declined.")
+                return render(request, "checkout_fail.html")
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-                return redirect(reverse('profile'))
+                return render(request, "checkout_success.html")
             else:
                 messages.error(request, "Unable to take payment")
+                return render(request, "checkout_fail.html")
         else:
-            print(payment_form.errors)
-            messages.error(request, "We were unable to take a payment with that card!")
+            payment_form = MakePaymentForm()
 
     else:
         payment_form = MakePaymentForm()
-
 
     payment_form = MakePaymentForm
     return render(request, "checkout.html",
