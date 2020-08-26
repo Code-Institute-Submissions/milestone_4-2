@@ -3,8 +3,12 @@ from .models import Order
 from datetime import datetime
 
 
-year = int(datetime.now().strftime("%Y"))
+class OrderCreateForm (forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'email']
 
+year = int(datetime.now().strftime("%Y"))
 
 class MakePaymentForm(forms.Form):
     """

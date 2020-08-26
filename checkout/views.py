@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .forms import MakePaymentForm
-from .models import Order
+from .models import Order, OrderItem
 
 from products.models import Training
 from profiles.models import UserProfile
@@ -22,12 +22,8 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request, pk):
     product = Training.objects.get(id=pk)
     payment_form = MakePaymentForm(request.POST)
-    order = Order(
-            product=product,
-            total=product.price
-        )
+    order = Order()
     if request.method == "POST":
-
         if payment_form.is_valid():
             try:
                 customer = stripe.Charge.create(

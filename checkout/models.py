@@ -1,24 +1,38 @@
-import uuid
-
 from django.db import models
-from django.db.models import Sum
 from django.conf import settings
-
-from django_countries.fields import CountryField
-
 from products.models import Training
 from profiles.models import UserProfile
-from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Order(models.Model):
-    product = models.ForeignKey(Training, null=True, blank=True, on_delete=models.SET_NULL)
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    total = models.DecimalField(max_digits=6, decimal_places=2,validators=[
-                                             MinValueValidator(0.00),
-                                             MaxValueValidator(1500.00)
-                                         ])
-    date_created = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return "{0} {1} @ {2}".format(self.user.username, self.product.name, self.product.price)
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True)
+    first_name = models.CharField(max_length=50, null=True)
+    last_name = models.CharField(max_length=50, null=True)
+    email = models.EmailField(null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    paid = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def _str_(self):
+        return f'Order {self.id}'
+
+    def get_total_cost(self):
+        return sum (item.get_cost() for item in self.items.all())
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order,
+                                related_name='items',
+                                on_delete=models.CASCADE)
+    product = models.ForeignKey(Training, 
+                                related_name='items',
+                                on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def _str_(self):
+        return str(self.id)
+
+    def get_cost(self):
+        return self.price * self.quantity
