@@ -1,13 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import UserProfile
-from .forms import UserProfileForm
-
+from .forms import UserProfileForm, UserUpdateForm
+from django.contrib.auth.decorators import login_required
 from checkout.models import Order
 
-
-@login_required
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -17,34 +15,28 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
+
+    form = UserProfileForm(instance=profile)
+
+    return render(request, "profiles/profile.html")
+
+@login_required
+def update_profile(request):
+    """Update profile page"""
+    orig = UserProfile.objects.get(user=request.user)
+    profile_form = UserProfileForm(instance=request.user.userprofile)
+
+    if request.method == "POST":
+        if 'cancel' in request.POST:
+            return render(request, 'profiles/profile.html')
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return render(request, 'profiles/profile.html')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
-    else:
-        form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
+            initial = request.user.profile
+            profile_form = UserProfileForm(request.POST, request.FILES, instance=initial)
 
-    template = 'profiles/profile.html'
-    context = {
-        'form': form,
-        'orders': orders,
-        'on_profile_page': True
-    }
+    return render(request, "profile_update.html", {'profile_form': profile_form})
 
-    return render(request, template, context)
-
-
-def order_history(request):
-    order = get_object_or_404(Order)
-
-    messages.info(request, (
-        f'This is a past confirmation for your order '
-        'A confirmation email was sent on the order date.'
-    ))
-
-    template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-        'from_profile': True,
-    }
-
-    return render(request, template, context)

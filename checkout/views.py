@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .forms import MakePaymentForm
-from .models import Order, OrderLineItem
+from .models import Order
 
 from products.models import Training
 from profiles.models import UserProfile
