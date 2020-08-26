@@ -3,8 +3,6 @@ from .models import Order
 from datetime import datetime
 
 
-
-
 year = int(datetime.now().strftime("%Y"))
 
 
