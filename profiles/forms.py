@@ -25,7 +25,7 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             'first_name' : 'First Name',
             'last_name' : 'Last Name',
-            'user_name' : 'User Name',
+            'user_name' : 'Username',
             'email' : 'Email',
         }
 

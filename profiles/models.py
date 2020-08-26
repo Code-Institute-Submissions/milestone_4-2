@@ -13,5 +13,5 @@ class UserProfile(models.Model):
     email = models.EmailField(null=True, blank=True)
 
     def __str__(self):
-        return f'Profile for User {self.user.username}'
+        return f'Profile for Username {self.username}'
 
