@@ -12,11 +12,9 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-
-
 class Order(models.Model):
     product = models.ForeignKey(Training, null=True, blank=True, on_delete=models.SET_NULL)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=6, decimal_places=2,validators=[
                                              MinValueValidator(0.00),
                                              MaxValueValidator(1500.00)
