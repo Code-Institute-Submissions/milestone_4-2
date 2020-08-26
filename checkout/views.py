@@ -10,7 +10,7 @@ from .models import Order
 
 from products.models import Training
 from profiles.models import UserProfile
-from profiles.forms import UserProfileForm
+
 
 import stripe
 import json
