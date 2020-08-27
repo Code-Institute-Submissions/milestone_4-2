@@ -3,7 +3,6 @@ from .models import Order, OrderItem
 
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
-    raw_id_fields = ['product']
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
@@ -11,3 +10,4 @@ class OrderAdmin(admin.ModelAdmin):
                     'paid', 'created']
     list_filter = ['paid', 'created']
     inlines = [OrderItemInline]
+
