@@ -2,12 +2,6 @@ from django import forms
 from .models import Order
 from datetime import datetime
 
-
-class OrderCreateForm (forms.ModelForm):
-    class Meta:
-        model = Order
-        fields = ['first_name', 'last_name', 'email']
-
 year = int(datetime.now().strftime("%Y"))
 
 class MakePaymentForm(forms.Form):
@@ -23,3 +17,10 @@ class MakePaymentForm(forms.Form):
     expiry_month = forms.ChoiceField(choices=MONTH_CHOICES, required=False)
     expiry_year = forms.ChoiceField(choices=YEAR_CHOICES, required=False)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = (
+            'user', 'first_name', 'last_name', 'email'
+        )

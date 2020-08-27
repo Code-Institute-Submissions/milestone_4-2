@@ -18,14 +18,23 @@ import json
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 
-@login_required
+
+@login_required()
 def checkout(request, pk):
     product = Training.objects.get(id=pk)
-    payment_form = MakePaymentForm(request.POST)
-    order = Order()
+    user = UserProfile.objects.get(email=request.user.email)
+
     if request.method == "POST":
+        if 'cancel' in request.POST:
+            return redirect(reverse('products'))
+        payment_form = MakePaymentForm(request.POST)
+        order = Order(
+                user=user)
+
         if payment_form.is_valid():
+
             try:
+                # stripe takes integer amount so need to multiply from cents up
                 customer = stripe.Charge.create(
                     amount=int(product.price * 100),
                     currency="GBP",
@@ -35,12 +44,15 @@ def checkout(request, pk):
             except stripe.error.CardError:
                 messages.error(request, "Sorry, your card was declined.")
                 return render(request, "checkout_fail.html")
+
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                messages.success(request, "You have successfully paid")
                 return render(request, "checkout_success.html")
+
             else:
                 messages.error(request, "Unable to take payment")
                 return render(request, "checkout_fail.html")
+
         else:
             payment_form = MakePaymentForm()
 
@@ -50,3 +62,4 @@ def checkout(request, pk):
     payment_form = MakePaymentForm
     return render(request, "checkout.html",
                   {'payment_form': payment_form, "publishable": settings.STRIPE_PUBLISHABLE, 'product': product,})
+
