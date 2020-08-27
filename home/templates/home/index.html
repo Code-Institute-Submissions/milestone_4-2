@@ -12,22 +12,25 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    Train with Games Ready? GO!
-                </h1>
-                <h4>Brain training for real life results</h4>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" class="play-now-button btn btn-lg rounded-0 text-uppercase py-3">Play Now</a>
-                    </h4>
-                </div>
+
+<!--Page Banner-->
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                Train with Games Ready? GO!
+            </h1>
+            <h4>Brain training for real life results</h4>
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'products' %}" class="play-now-button btn btn-lg rounded-0 text-uppercase py-3">Play Now</a>
+                </h4>
             </div>
         </div>
     </div>
+</div>
 
+<!--About Section-->
 <section class="about-section">
 	<div class="container h-100">
 		<h1 class="text-center mt-3"> We are #GameChangers </h1>
@@ -76,6 +79,7 @@
     </div>
 </section>
 
+<!--Coming Soon Section-->
 <section class="coming-soon-section">
     <div class="row">
         <div class="container-fluid">
@@ -113,8 +117,7 @@
     </div>
 </section>
 
-
-
+<!--Contact Form-->
 <section class="contact-us-section" id="contact">
     <div class="row contact-us-heading" >
         <div class="col text-center mt-3">

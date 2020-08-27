@@ -1,3 +1,15 @@
+.user-detail-label {
+    font-weight: bold;
+    color:black;
+}
+
+.form-group {
+    padding-left:0.5em;
+}
+
+#submit_payment_btn {
+    padding-right:0.5em;
+}
 
 .navbar {
     margin-bottom:0;
