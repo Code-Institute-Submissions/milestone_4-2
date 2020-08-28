@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% crispy user_profile_form %}
 
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -22,33 +23,32 @@
             </div>
         </div>
         <div class="row" >
-        <div class="col-md-12">
-            <h4>Details:</h4>
-        </div>
 
-        <!--User details form to add in new information-->
+        <!--Details of how to update information-->
         <div class="row profile-outline">
             <div class="col-md-8">
                 <div class="row" >
                     <div class="col-md-8">    
-                    <form method="post">
-                        <p><span class="label">Username: </span>{{ request.user.username }}</p>
-                        {{ user_form.as_p }}
-                        {% csrf_token %}
+                    <p>Please email hello@gamesreadygo.com to update your user details.</p>
+                    <p>Please provide the following information in your email:</p>
+                    <ul>
+                        <li>Registered Username plus any modification</li>
+                        <li>Registered First Name plus any modification</li>
+                        <li>Registered Last Name plus any modification</li>
+                        <li>Registered Email plus any modification</li>
+                    </ul>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!--Submit the information, send an email to company to update user profile-->
+        <!--Back to user profile-->
         <div class="row">
-            <div class="">
-                <form class="mt-3" action="{% url 'profile' %}" method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-green rounded-0 text-uppercase float-right">Save</button>
-                </form>
+            <div>
+                <a class="btn btn-green rounded-0 text-uppercase" href="{% url 'profile' %}"
+							     aria-haspopup="true" aria-expanded="false">Back</a>
             </div>
         </div>
     </div>
 {% endblock %}
+

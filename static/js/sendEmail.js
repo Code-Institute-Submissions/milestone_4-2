@@ -14,3 +14,4 @@ function sendMail(contactForm) {
     );
     return render('index.html');
 }
+
