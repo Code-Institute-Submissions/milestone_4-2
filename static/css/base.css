@@ -27,6 +27,7 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'lato';
+    overflow-x: hidden;
 }
 
 .overlay {
@@ -146,15 +147,15 @@ p {
 
 /*-----------------------------------------Contact Form*/
 
+.contact-us-section{
+    background: rgba(255, 255, 255, 0.39);
+}
+
 .contact-us-heading {
-    color:black;
     padding-top:3em;
     padding-bottom:2.5em;
 }
 
-.contact-line {
-    background-color: black;
-}
 
 .form {
     display: flex;
@@ -204,7 +205,6 @@ p {
 }
 
 .form-thanks {
-    color: black;
     font-weight:bold;
     text-align: center;
     display: block;
