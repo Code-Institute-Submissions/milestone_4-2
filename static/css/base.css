@@ -423,8 +423,22 @@ select option[value=""] {
 
 }
 
+/* -------------------------------- Profile Page */
 
+.user-details {
+    padding-top:3em;
+}
 
+.user-details,
+.profile-outline,
+.profile-btn {
+    padding-left:20em;
+}
+
+.profile-btn {
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
 
 /* -------------------------------- Media Queries */
 
@@ -446,7 +460,7 @@ select option[value=""] {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 100px;
     }
 
 /* Allauth form formatting */
