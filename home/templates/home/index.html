@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
-
+{% block head_js %}
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_NihxeP1f0AUGV5O0TrAHF");
+    })();
+    </script>
+ {% endblock head_js %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -128,10 +137,10 @@
     <div class="container-fluid" >
         <div class="row bg-color">
             <div class="col-md-4 offset-4">
-                <div class="form ">
-                    <input type="text " name="name " id="fullname" class="form-control " placeholder="Name " required/>
-                    <input type="email " name="email " id="emailaddress " class="form-control" placeholder="Email " required/>
-                    <textarea rows="5 " name="message " id="message " class="form-control " placeholder="Type your message here " required></textarea>
+                <form onsubmit="return sendMail(this);" class="form">
+                    <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required/>
+                    <input type="emailaddress" name="emailaddress" id="emailaddress" class="form-control" placeholder="Email Address" required/>
+                    <textarea rows="5" name="message" id="message" class="form-control" placeholder="Type your message here" required></textarea>
                     <div class="form-row ">
                         <div class="col text-center">
                             <button type="submit" class="btn-contact btn-contact-outline">Submit</button>
@@ -140,11 +149,15 @@
                     <div>
                     <p class="form-thanks ">Thanks, we'll be in touch soon!</p>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
 
 
+{% endblock %}
+
+{% block postloadjs %}
+     <script src="static/js/sendEmail.js"></script>
 {% endblock %}
