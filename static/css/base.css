@@ -25,6 +25,7 @@ body {
     background: url('/media/homepage_background.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
+    width:100%;
     color: #555;
     font-family: 'lato';
     overflow-x: hidden;
@@ -222,25 +223,12 @@ p {
 
 /* -------------------------------- Footer */
 
-/*----Sticky Footer---*/
-
-/*body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}*/
-
-/*main {
-    flex: 1 0 auto;
-}*/
-
-/*--------------------*/
 
 .page-footer {
-    position:fixed;
     background:white;
     color:#1a5d37;
-    padding-top:15px;
+    padding-top:0.5em;
+    padding-bottom:1.5em;
     font-weight:bold;  
     position: sticky;  
 }
@@ -253,15 +241,26 @@ p {
 
 .footer-text {
     padding-left:5em;
+    padding-top:2em;
     text-transform: uppercase;
 }
 
 .footer-link {
     padding-left:15em;
+    padding-top:0.5em;
     color:#1a5d37;
     text-decoration: none;
     text-transform: uppercase;
 }
+
+.footer-link-section {
+    padding-top:2em;
+}
+
+h6 {
+    font-weight:bold;
+}
+
 
 a:hover {
     text-decoration: none;
@@ -465,13 +464,18 @@ select option[value=""] {
 
 /* Allauth form formatting */
 
+.form-input-allauth {
+    padding-left:25em;
+    padding-right:25em;
+}
+
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
 }
 
 .allauth-form-inner-content input {
-    border-color: #000;
+    border-color: #1a5d37;
     border-radius: 0;
 }
 
@@ -495,8 +499,8 @@ select option[value=""] {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color:#1a5d37;
+    border: 1px solid#1a5d37;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -509,8 +513,8 @@ select option[value=""] {
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
-    background-color: #222;
-    border-color: #222;
+    background-color: #0b2818;
+    border-color: #0b2818;
 }
 
 .allauth-form-inner-content a {
