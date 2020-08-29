@@ -33,4 +33,3 @@ class Training(models.Model):
             else:
                 feature_list.append(feature)
         return feature_list
-
