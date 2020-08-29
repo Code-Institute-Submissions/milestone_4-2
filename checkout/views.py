@@ -1,19 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-from django.views.decorators.http import require_POST
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-
 from .forms import MakePaymentForm
-from .models import Order, OrderItem
-
 from products.models import Training
-from profiles.models import UserProfile
-
 
 import stripe
-import json
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
@@ -22,14 +14,11 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request, pk):
     product = Training.objects.get(id=pk)
-    user = UserProfile.objects.get(email=request.user.email)
 
     if request.method == "POST":
         if 'cancel' in request.POST:
             return redirect(reverse('products'))
         payment_form = MakePaymentForm(request.POST)
-        order = Order(
-                user=user)
 
         if payment_form.is_valid():
 
@@ -61,5 +50,6 @@ def checkout(request, pk):
 
     payment_form = MakePaymentForm
     return render(request, "checkout.html",
-                  {'payment_form': payment_form, "publishable": settings.STRIPE_PUBLISHABLE, 'product': product,})
-
+                  {'payment_form': payment_form,
+                   "publishable": settings.STRIPE_PUBLISHABLE,
+                   'product': product, })
