@@ -5,7 +5,7 @@
     {% block extra_head %}
     {% endblock %}
   </head>
-  <body>
+  <body class="sticky-footer">
     {% block body %}
 
     {% if messages %}
@@ -36,5 +36,8 @@
     {% endblock %}
     {% block extra_body %}
     {% endblock %}
+
+    <main>
+    </main>
   </body>
 </html>
