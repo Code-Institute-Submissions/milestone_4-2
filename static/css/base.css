@@ -3,8 +3,46 @@
     color:black;
 }
 
+/*checkout success*/
+
+.gamechanger-btn {
+    margin-left:23em;
+    margin-top:2em;
+}
+
+.success-text {
+    padding-top:1em;
+    padding-left:15em;
+    
+}
+
+.fail-btn {
+    margin-left:33em;
+    margin-bottom:30em;
+}
+
+.btn-margin {
+    margin-bottom:13em;
+}
+
+
 .form-group {
     padding-left:0.5em;
+}
+
+.sticky-footer {
+    display: flex;
+    min-height: 75vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+/*allauth signin */
+.account-btn {
+    margin-left:30em;
 }
 
 #submit_payment_btn {
@@ -340,12 +378,17 @@ a:hover {
     padding-bottom:0.75em;
 }
 
+.ord-det-head {
+    padding-left: 11em;
+}
+
 .btn-cancel {
     color:#1a5d37 !important;
 }
 
 .signature {
     font-family: 'Permanent Marker', cursive;
+    padding-top: 0.75em;
 }
 
 .StripeElement,

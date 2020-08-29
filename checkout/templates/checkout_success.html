@@ -19,22 +19,21 @@
         <!--Body of page-->
         <div class="row">
             <div class="col">
-                <hr class="w-50">
                 <h3 class="logo-font mb-4 text-center">Thank You</h3>
-                <hr class="w-50">
-                <h4 class="text-black signature">Hello Gamechanger!</h4>
-                   <p class="text-black">This is confirmation of your order of one to one sessions with Games, Ready, GO!</p>
-                   <p class="text-black"> We will shortly be sending you a questionnaire so that we can find out more about your training needs.
+                <hr class="w-50 mb-1">
+                <h4 class="text-black signature text-center">Hello Gamechanger!</h4>
+                   <p class="text-black success-text">This is confirmation of your order of one to one sessions with Games, Ready, GO!</p>
+                   <p class="text-black success-text"> We will shortly be sending you a questionnaire so that we can find out more about your training needs.
                                         <br>This will be followed up with a booking request so that you can confirm your one to one sessions.
                                         <br>If you have any questions, feel free to contact us at hello@gamesreadygo.com.</p>
-                   <p class="text-black">Thank you for booking!</p>
-                   <h4 class="text-black signature"><strong>Games, Ready, GO!</strong></h4>
+                   <p class="text-black text-center">Thank you for booking!</p>
+                   <h4 class="text-black signature text-center"><strong>Games, Ready, GO!</strong></h4>
             </div>
         </div>
 
        <!--Navigation Buttons-->
-        <div class="row">
-			<div class="col-12 col-lg-7 text-center">
+        <div class="row gamechanger-btn">
+			<div class="col-12">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">
