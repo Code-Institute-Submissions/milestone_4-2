@@ -83,7 +83,8 @@
     }
 
     .btn-contact {
-        margin-left:10em;
+        margin-left:;
+        margin-top:1em;
     }
 
     .form-thanks {
@@ -91,10 +92,10 @@
     }
 }
 
-@media (min-width: 426px max-width:1023px) {
+@media (min-width: 768px) {
 
     .banner-header {
-        padding-top:2.5em;
+        padding-top:2em;
         padding-bottom:0.5em;
         font-size:40px;
     }
@@ -103,20 +104,20 @@
         font-size:20px;
     }
 
-    .about-section {
-        padding-right:15em;
+    .about-section-text {
+        padding-left:2em;
     }
 
     .about-section-img {
-       display:none;
+        display:none;
     }
 
     .coming-soon-img {
         width:99%;
         height:99%;
-        padding-left;
+        padding-left:0.25em;
         margin-bottom:1em;
-        margin-right:1em;
+        margin-right:0.25em;
 
     }
 
@@ -124,12 +125,20 @@
         padding-top:0.5em;
     }
 
-    .footer-text,
-    .footer-link {
-        padding-left:0.25em;
+    .contact-us {
+        margin-left:15em;
     }
 
-    .footer-header {
-        padding-top:0.25;
+    .btn-contact {
+        
+    }
+
+    .footer-header,
+    .footer-text,
+    .footer-link,
+    .footer-link-section {
+        margin-left:0;
+        padding-left:0;
+        padding-top:0.25em;
     }
 }
