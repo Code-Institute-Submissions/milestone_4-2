@@ -110,6 +110,8 @@ body {
 
 /*-----------------------------------------Homepage Banner*/
 
+
+
 .play-now-button {
     background: #1a5d37;
     color: white;
@@ -124,7 +126,7 @@ body {
 
 .btn-outline-green {
     background: white;
-    color: #1a5d37 !important; /* use important to override link colors for <a> elements */
+    color: #1a5d37 !important; 
     border: 1px solid #1a5d37;
 }
 
@@ -218,7 +220,7 @@ p {
     color: white;
     margin-top: 2em;
     margin-bottom: 2em;
-    margin-left: 5.5em;
+    margin-left: 50em;
     padding-top:0.25em;
     padding-bottom:0.25em;
     padding-left:1em;

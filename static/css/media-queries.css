@@ -1,0 +1,135 @@
+.coming-soon-img {
+    width:475px;
+    height:575px;
+}
+
+.about-section-img {
+    width:650px;
+    height:570px;
+}
+
+@media (max-width: 570px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-item,
+    .nav-link {
+        font-size:12px;
+        padding-left:0;
+    }
+
+    .banner-header {
+        padding-top:4em;
+        font-size:30px;
+    }
+
+    .head-text {
+        font-size:15px;
+    }
+
+    h1 {
+        font-size:25px;
+        padding-top:1em;
+    }
+
+    .about-section {
+        padding-top:2em;
+        padding-left:0.5em;
+    }
+
+    .about-section-img {
+        display:none;
+    }
+
+    .coming-soon-img {
+        width:95%;
+        height:95%;
+        padding-left:1em;
+        margin-bottom:1em;
+
+    }
+
+    .contact-us-heading {
+        padding-top:0.5em;
+    }
+
+    .footer-text,
+    .footer-link {
+        padding-left:0.25em;
+    }
+
+    .footer-header {
+        padding-top:0.25;
+    }
+}
+
+@media (min-width: 425px) {
+    
+    .page-footer {
+        padding-top: 0.25em;
+    }
+
+    .footer-text,
+    .footer-link {
+        padding-left:2em;
+    }
+
+    .footer-header,
+    .social-links {
+        padding-left:1.5em;
+        padding-top:0.25em;
+    }
+
+    .btn-contact {
+        margin-left:10em;
+    }
+
+    .form-thanks {
+        margin-left:6em;
+    }
+}
+
+@media (min-width: 426px max-width:1023px) {
+
+    .banner-header {
+        padding-top:2.5em;
+        padding-bottom:0.5em;
+        font-size:40px;
+    }
+
+    .head-text {
+        font-size:20px;
+    }
+
+    .about-section {
+        padding-right:15em;
+    }
+
+    .about-section-img {
+       display:none;
+    }
+
+    .coming-soon-img {
+        width:99%;
+        height:99%;
+        padding-left;
+        margin-bottom:1em;
+        margin-right:1em;
+
+    }
+
+    .contact-us-heading {
+        padding-top:0.5em;
+    }
+
+    .footer-text,
+    .footer-link {
+        padding-left:0.25em;
+    }
+
+    .footer-header {
+        padding-top:0.25;
+    }
+}
