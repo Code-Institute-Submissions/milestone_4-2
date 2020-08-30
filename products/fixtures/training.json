@@ -5,7 +5,7 @@
     "fields": {
       "name": "One Session",
       "price": "100.00",
-      "features": "free_initial,one_hour,training_plan",
+      "features": "free_initial,one_hour,training_plan"
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "name": "Three Sessions",
       "price": "275.00",
-      "features": "free_initial,three_hours,training_plan,follow_up",
+      "features": "free_initial,three_hours,training_plan,follow_up"
     }
   },
   {
@@ -23,7 +23,7 @@
     "fields": {
       "name": "Five Sessions",
       "price": "450.00",
-      "features": "free_initial,five_hours,training_plan,follow_up,facebook_group",
+      "features": "free_initial,five_hours,training_plan,follow_up,facebook_group"
     }
   }
 ]
