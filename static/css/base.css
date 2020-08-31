@@ -1,70 +1,19 @@
-.coming-soon-img {
-    width:475px;
-    height:575px;
-}
-
-.about-section-img {
-    width:500px;
-    height:450px;
-}
-
-.user-detail-label {
-    font-weight: bold;
-    color:black;
-}
-
-/*checkout success*/
-
-.gamechanger-btn {
-    margin-left:23em;
-    margin-top:2em;
-    margin-bottom:2em;
-}
-
-.success-text {
-    padding-top:1em;
-    padding-left:15em;
-    
-}
-
-.fail-btn {
-    margin-left:33em;
-    margin-bottom:30em;
-}
-
-.btn-margin {
-    margin-bottom:13em;
-}
+/* -------------------------------- Contents --------------------------
+1. General Styling
+2. Navigation
+3. Logo
+4. Homepage Banner
+5. Homepage Sections
+6. Contact Form
+7. Footer
+8. Product page
+9. Checkout
+10. Profile Page
+11. Allauth form formatting
 
 
-.form-group {
-    padding-left:0.5em;
-}
 
-.sticky-footer {
-    display: flex;
-    min-height: 75vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-/*allauth signin */
-.account-btn {
-    margin-left:30em;
-}
-
-#submit_payment_btn {
-    padding-right:0.5em;
-}
-
-.navbar {
-    margin-bottom:0;
-}
-
-/*-----------------------------------------General Styling*/
+/*-----------------------------------------1. General Styling*/
 
 html {
     height: 100%;
@@ -89,7 +38,7 @@ body {
 	z-index: -1;
 }
 
-/*-----------------------------------------Navigation Bar*/
+/*-----------------------------------------2. Navigation Bar*/
 
 .nav-item {
     margin-right:25px;
@@ -109,7 +58,7 @@ body {
 }
 
 
-/*-----------------------------------------Logo*/
+/*-----------------------------------------3. Logo*/
 
 .logo-font {
     text-transform: uppercase;
@@ -119,7 +68,7 @@ body {
     width: fit-content;
 }
 
-/*-----------------------------------------Homepage Banner*/
+/*-----------------------------------------4. Homepage Banner*/
 
 
 
@@ -170,7 +119,17 @@ body {
     border: 1px solid black !important;
 }
 
-/*-----------------------------------------Homepage Sections*/
+/*-----------------------------------------5. Homepage Sections*/
+
+.coming-soon-img {
+    width:475px;
+    height:575px;
+}
+
+.about-section-img {
+    width:500px;
+    height:450px;
+}
 
 .about-section,
 .coming-soon-section {
@@ -196,7 +155,7 @@ p {
     padding-bottom:1em;
 }
 
-/*-----------------------------------------Contact Form*/
+/*-----------------------------------------6. Contact Form*/
 
 .contact-us-section{
     background: rgba(255, 255, 255, 0.39);
@@ -265,7 +224,17 @@ p {
 
 
 
-/* -------------------------------- Footer */
+/* --------------------------------7. Footer */
+
+.sticky-footer {
+    display: flex;
+    min-height: 75vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 
 
 .page-footer {
@@ -323,7 +292,7 @@ a:hover {
 
 }
 
-/*-----------------------------------------Product page*/
+/*-----------------------------------------8. Product page*/
 
 .product-container {
     padding-top:1em;
@@ -371,7 +340,7 @@ a:hover {
     padding-left:2em;
 }
 
-/*-----------------------------------------Checkout*/
+/*-----------------------------------------9. Checkout*/
 
 .payment-container {
     padding-top:3em;
@@ -473,7 +442,35 @@ select option[value=""] {
 
 }
 
-/* -------------------------------- Profile Page */
+/*checkout success*/
+
+.gamechanger-btn {
+    margin-left:23em;
+    margin-top:2em;
+    margin-bottom:2em;
+}
+
+.success-text {
+    padding-top:1em;
+    padding-left:15em;
+    
+}
+
+.fail-btn {
+    margin-left:33em;
+    margin-bottom:30em;
+}
+
+.btn-margin {
+    margin-bottom:13em;
+}
+
+
+.form-group {
+    padding-left:0.5em;
+}
+
+/* --------------------------------10. Profile Page */
 
 .user-details {
     padding-top:1.5em;
@@ -484,6 +481,12 @@ select option[value=""] {
 .profile-btn {
     padding-left:20em;
 }
+
+.user-detail-label {
+    font-weight: bold;
+    color:black;
+}
+
 
 .profile-btn {
     padding-top: 1em;
@@ -513,7 +516,7 @@ select option[value=""] {
         padding-top: 100px;
     }
 
-/* Allauth form formatting */
+/*11. Allauth form formatting - mostly taken from CI Boutique Ado project with some adaptations */
 
 .form-input-allauth {
     padding-left:25em;
@@ -571,6 +574,16 @@ select option[value=""] {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
+/*allauth signin */
+.account-btn {
+    margin-left:30em;
+}
+
+#submit_payment_btn {
+    padding-right:0.5em;
+}
+
 
 /* fixed top navbar only on medium and up 
 @media (min-width: 992px) {
