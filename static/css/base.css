@@ -1,3 +1,13 @@
+.coming-soon-img {
+    width:475px;
+    height:575px;
+}
+
+.about-section-img {
+    width:500px;
+    height:450px;
+}
+
 .user-detail-label {
     font-weight: bold;
     color:black;
@@ -8,6 +18,7 @@
 .gamechanger-btn {
     margin-left:23em;
     margin-top:2em;
+    margin-bottom:2em;
 }
 
 .success-text {
@@ -288,6 +299,7 @@ p {
 
 .footer-link-section {
     padding-top:2em;
+
 }
 
 h6 {
@@ -315,6 +327,7 @@ a:hover {
 
 .product-container {
     padding-top:1em;
+    margin-left:7em;
 }
 
 .product-header {
@@ -486,7 +499,7 @@ select option[value=""] {
   }
 }
 
-/* fixed top navbar only on medium and up */
+/* fixed top navbar only on medium and up 
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -494,7 +507,7 @@ select option[value=""] {
         right: 0;
         left: 0;
         z-index: 1030;
-    }
+    }*/
 
     .header-container {
         padding-top: 100px;
@@ -559,7 +572,7 @@ select option[value=""] {
 	color: #17a2b8; /* text-info */
 }
 
-/* fixed top navbar only on medium and up */
+/* fixed top navbar only on medium and up 
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -572,9 +585,9 @@ select option[value=""] {
     .header-container {
         padding-top: 164px;
     }
-}
+}*/
 
-/* pad the top a bit when navbar is collapsed on mobile */
+/* pad the top a bit when navbar is collapsed on mobile 
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
@@ -583,5 +596,5 @@ select option[value=""] {
     body {
         height: calc(100vh - 116px);
     }
-}
+}*/
     
