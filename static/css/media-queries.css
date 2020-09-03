@@ -281,7 +281,7 @@
     }
 }
 
-@media (min-width: 1081px) {
+@media (min-width: 990px) and (max-width:1439) {
     
     .nav-item {
         margin-right:0;
