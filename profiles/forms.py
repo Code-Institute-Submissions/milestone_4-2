@@ -15,13 +15,11 @@ class UserProfileForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'first_name': 'First Name',
-            'last_name': 'Last Name',
             'user_name': 'Username',
             'email': 'Email',
         }
 
-        self.fields['first_name'].widget.attrs['autofocus'] = True
+        self.fields['user_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
@@ -30,7 +28,7 @@ class UserProfileForm(forms.ModelForm):
 class UserEditForm (forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('email')
 
 
 class ProfileEditForm (forms.ModelForm):
