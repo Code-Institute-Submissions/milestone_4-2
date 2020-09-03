@@ -1,1 +1,2 @@
-web: gunicorn milestone4-gamesreadygo.wsgi:application
+web: gunicorn milestone4-gamesreadygo.wsgi:application --log-file -
+
