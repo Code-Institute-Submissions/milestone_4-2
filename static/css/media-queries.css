@@ -266,11 +266,6 @@
 }
 
 
-
-
-
-
-
 @media (max-width: 1024px) {
     .product-container {
         padding-left:0em;
@@ -283,5 +278,59 @@
 
     .buy-now-btn {
         margin-top:3.5em;
+    }
+}
+
+@media (min-width: 1081px) {
+    
+    .nav-item {
+        margin-right:0;
+        padding-left:3em;
+        margin-left:0;
+    }
+
+    .list-inline-item {
+        padding-left:2.5em;
+        margin-left:0;
+    }
+
+    .footer-link {
+        padding-left:10em;
+    }
+
+    .coming-soon-img {
+        width:99%;
+        height:99%;
+        }
+
+    .contact-form {
+        padding-left:25em;
+    }
+
+    .btn-contact {
+        margin-left:7em;
+        margin-top:1em;
+    }
+
+    .product-container {
+        margin-left:20em;
+    }
+
+    .product-card {
+        margin-top:1em;
+        padding-right:0;
+    }
+
+    .gamechanger-btn {
+        margin-left:15em;
+    }
+
+    .fail-btn {
+        margin-left:25em;
+    }
+
+    .account-btn {
+        margin-left:23em;
+
     }
 }
