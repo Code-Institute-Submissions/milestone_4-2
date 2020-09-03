@@ -13,11 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import dj_database_url
 
+development = os.environ.get('DEVELOPMENT', False)
+
 if development:
     import env
-
-
-development = os.environ.get('DEVELOPMENT', False)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
