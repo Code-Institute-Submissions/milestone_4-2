@@ -26,6 +26,9 @@ body {
     color: #555;
     font-family: 'lato';
     overflow-x: hidden;
+    width:100%;
+    margin:0;
+    padding:0;
 }
 
 .overlay {
@@ -183,16 +186,12 @@ p {
     color: #1a5d37 !important;
 }
 
-.contact-form {
-        padding-left:30em;
-    }
-
-
 
 .btn-contact {
     background: #1a5d37;
     color: white;
-    margin-left:5em;
+    margin-left:6em;
+    margin-top:0.5em;
     
 }
 
