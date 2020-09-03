@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import env
 import dj_database_url
+
+if development:
+    import env
+
 
 development = os.environ.get('DEVELOPMENT', False)
 
