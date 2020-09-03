@@ -1,2 +1,3 @@
-web: gunicorn milestone4-gamesreadygo.wsgi:application
+web: gunicorn games_ready_go.wsgi:application
+
 
