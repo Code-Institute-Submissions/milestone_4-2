@@ -112,11 +112,41 @@
 				</ul>
 			</div>
 		</div>
-
-        <!--Mobile Nav Bar-->
-        
 		
-
+		<!--Mobile Nav Bar-->
+		<div class="row bg-white d-block d-lg-none">
+		<nav class="navbar navbar-expand-sm bg-white navbar-light w-100">
+			<ul class="navbar-nav border-0">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle fa fa-bars" href="#" id="navbardrop" data-toggle="dropdown">
+					</a>
+					<div class="dropdown-menu border-0">
+						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}" id="home-link"
+							aria-haspopup="true" aria-expanded="false">Home</a>
+						<a href="{% url 'products' %}" class="logo-font font-weight-bold nav-link text-green mr-5"
+							id="training-link" aria-haspopup="true" aria-expanded="false">Training</a>
+						<a class="logo-font font-weight-bold nav-link text-green mr-5" href="{% url 'home' %}#contact"
+							id="contact-link" aria-haspopup="true" aria-expanded="false">Contact</a>
+                        <a class="text-green nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <p class="my-0">My Account</p>
+                            </div>
+			            </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+		        </li>
+			</ul>
+		</nav>
+        </div>
 	</header>
 
 	{% if messages %}
