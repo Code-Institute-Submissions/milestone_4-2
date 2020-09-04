@@ -348,10 +348,3 @@
         margin-left:5em;
     }
 }
-
-@media (max-width: 1350px) {
-    .list-inline-item {
-        margin-left:0em;
-        padding=left:0em;
-    }
-}
