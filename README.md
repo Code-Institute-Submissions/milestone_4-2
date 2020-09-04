@@ -23,7 +23,7 @@ This website is for customers that want to learn how to train their dogs through
 *	Checkout securely to be confident in my purchase
 *	Receive information on how to book sessions after purchase
 
-**Site Owner**
+**Site Owner - I want to be able to**
 *	Receive an order
 *	Obtain customer details
 *	Take secure payments
@@ -100,9 +100,9 @@ All testing of the website was done manually. I was not able to run the HTML thr
 
 *	**Contact Form**
     *    All fields complete and valid - allows user to submit the form, and send email to company with details entered into the form – PASS
-*   User received an email confirmation for submission – PASS
-*   Some fields not complete - error shows – PASS
-*   Fields not valid - error stating components that must be included to be valid – FAIL. Form allows submission with any data in fields (eg not a valid email address), see features left to implement for more information.
+    * User received an email confirmation for submission – PASS
+    * Some fields not complete - error shows – PASS
+    * Fields not valid - error stating components that must be included to be valid – FAIL. Form allows submission with any data in fields (eg not a valid email address), see features left to implement for more information.
 
 *	**Nav Bar - Desktop View**
     *   Company Logo - directs to home page - PASS
@@ -118,59 +118,59 @@ if user it not logged in loads register or log in options in drop down menu - PA
 
 *	**Nav Bar - Mobile View**
     * Dropdown menu loads when button pressed – PASS
-* Links all work as above - PASS
+    * Links all work as above - PASS
 
 *	**Register for Account**
     *   All fields complete and valid - allows user to press sign up and register - PASS
 	* Some fields not complete - error shows - PASS
 	* Fields not valid - error stating components that must be included to be valid - PASS    
 	* Confirmation fields not matching - error stating components that must be included to be valid - PASS
-	- Back to log in button - directs to log in page - PASS
-	- Sign in link - directs to log in page - PASS
+	* Back to log in button - directs to log in page - PASS
+	* Sign in link - directs to log in page - PASS
 
 
 *	**Log In / Log Out**
     *   Log in - directs to sign in page - PASS
 	* Previously saved information - loads from the database to the correct fields - PASS
-	- Sign in button - logs user in and directs to home page - PASS
-	- Home button - directs to home page - PASS
-	- Sign up button - directs to sign up page - PASS
-	- Log out - directs to log out page - PASS
-	- Cancel button - directs to home page - PASS
-	- Log out button - logs out and directs to home page - PASS
+	* Sign in button - logs user in and directs to home page - PASS
+	* Home button - directs to home page - PASS
+	* Sign up button - directs to sign up page - PASS
+	* Log out - directs to log out page - PASS
+	* Cancel button - directs to home page - PASS
+	* Log out button - logs out and directs to home page - PASS
 *	**Password Reset**
     *   Back to login button - directs to sign in page - PASS
-	- Fields complete and valid - reset password button pressed and email sent to user - PASS
-	- Fields not valid - error stating components that must be included to be valid - PASS
+	* Fields complete and valid - reset password button pressed and email sent to user - PASS
+	* Fields not valid - error stating components that must be included to be valid - PASS
 
 
 *	**Footer**
     *   Company logo - directs to home page - PASS
     *   Social media links - directs to each social media website - PASS
     *   Home - directs to home page - PASS
-	- Training - directs to product page - PASS
-	- My account - if user not logged in - directs to log in page, then on to profile page - PASS
+	* Training - directs to product page - PASS
+	* My account - if user not logged in - directs to log in page, then on to profile page - PASS
 	 if user is logged in - directs to profile page - PASS
 
 *	**Product Page**
-*   Loads different products available from the json file in the database - PASS
-	- Buy now buttons - if the user is logged in - directs to checkout page with specific product information passed through to the order details table- PASS
+    * Loads different products available from the json file in the database - PASS
+	* Buy now buttons - if the user is logged in - directs to checkout page with specific product information passed through to the order details table- PASS
 	if the user is not logged in - directs to log in page, then on to the checkout page with product information passed through to the order details table – PASS
 
 *	**Checkout Page**
- 	- Loads the product information from the product database into the order details table - PASS
+ 	* Loads the product information from the product database into the order details table - PASS
     *   Loads the user details from the database into the user details section - PASS
-	- Amend button - directs to edit profile page - PASS
-	- Cancel button - directs to product page - PASS
+	* Amend button - directs to edit profile page - PASS
+	* Cancel button - directs to product page - PASS
 
 *	**Stripe Payment** *   
-	- Stripe success test card (4242 4242 4242 4242) - order completed, payment sent through to stripe, user directed to checkout success page - PASS
+	* Stripe success test card (4242 4242 4242 4242) - order completed, payment sent through to stripe, user directed to checkout success page - PASS
     *   Stripe error test card (4000000000003220) -  no order generated on stripe, directs payment fail page - PASS
-	- Fields not complete - error stating required fields - PASS
-	- Fields not valid - error stating components that must be included to be valid - PASS
+	* Fields not complete - error stating required fields - PASS
+	* Fields not valid - error stating components that must be included to be valid - PASS
 
 *	**Checkout Success**
-*   Gamechanger button - directs to homepage - PASS
+    * Gamechanger button - directs to homepage - PASS
 
 *	**Checkout Fail**
     *   Try again button - directs to product page – PASS
@@ -181,7 +181,7 @@ if user it not logged in loads register or log in options in drop down menu - PA
 
 *	**Edit Profile Page**
     *   Advises of how to update profile information - PASS
-	- Back button - directs to profile page - PASS
+	* Back button - directs to profile page - PASS
 
 
 
@@ -213,7 +213,7 @@ I had some problems when deploying to Heroku. The app changed some of the screen
 
 **Solution:** Due to time constraints, I was unable to continue to work on this function and amended my project so that the user was directed to an information page detailing how to edit their profile. 
 
-**Issue:**Stripe payments not working on Heroku.
+**Issue:** Stripe payments not working on Heroku.
 
 **Solution:** Stripe keys input into the Heroku environment variables and settings.py amended to direct to these.
  
@@ -239,13 +239,13 @@ All secret keys for Stripe, Production and Django settings in Heroku will need t
 
 *	Guidance on the models, forms and views were obtained from the projects, queries on Slack and tutor support.
 
-##### Content
+#### Content
 
 *	The content in the “about us, gamechanger section” on the homepage was taken from [Horton Dogs](http://www.hortondogs.co.uk/about "Horton Dogs"). All other content was written by myself.
 
 *	This README file is based on the Code Institute template.
 
 
-##### Media
+#### Media
 
 *	The photo used in the coming soon blog image is my own. All other photos used in this site are from Google Images.
