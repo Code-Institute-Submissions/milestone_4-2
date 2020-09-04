@@ -120,6 +120,13 @@
     }
 }
 
+@media (min width:320px) and (max-width: 512px) {
+    .product-section,
+    .product-container {
+        margin:0;
+        padding:0;
+    }
+
 @media (max-width: 768px) {
 
     body {
@@ -339,5 +346,12 @@
 @media (min-width: 1260px) {
     .product-container {
         margin-left:5em;
+    }
+}
+
+@media (max-width: 1350px) {
+    .list-inline-item {
+        margin-left:0em;
+        padding=left:0em;
     }
 }
